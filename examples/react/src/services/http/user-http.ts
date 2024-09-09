@@ -3,7 +3,7 @@ import { WrappedResponse } from "../../entities/wrapped-response";
 
 import { TApiPaginationResponse } from "../../entities/responses/api-pagination-response";
 import { TUserResponse } from "../../entities/responses/user-response";
-import type { IHttpService } from "./http-service";
+import { type IHttpClient } from "./i-http-service";
 
 export interface IUserHttp {
   getUsers(): Promise<WrappedResponse<TApiPaginationResponse<TUserResponse>>>;
@@ -11,14 +11,14 @@ export interface IUserHttp {
 
 @injectable()
 export class UserHttp implements IUserHttp {
-  private httpService: IHttpService;
+  private httpClient: IHttpClient;
 
-  constructor(@inject("HttpService") httpService: IHttpService) {
-    this.httpService = httpService;
+  constructor(@inject("HttpClient") httpClient: IHttpClient) {
+    this.httpClient = httpClient;
   }
 
   async getUsers() {
-    return this.httpService.get<
+    return this.httpClient.get<
       WrappedResponse<TApiPaginationResponse<TUserResponse>>
     >("/api/users");
   }
