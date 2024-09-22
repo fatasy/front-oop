@@ -1,5 +1,5 @@
 import React from "react";
-import { RepositoryContext } from "../contexts/repository-context";
+import { RepositoryContext } from "../provider/repository-provider";
 
 export const useRepository = () => {
   const context = React.useContext(RepositoryContext);

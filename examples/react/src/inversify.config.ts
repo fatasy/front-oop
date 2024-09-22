@@ -9,7 +9,10 @@ import { IUserHttp, UserHttp } from "./services/http/user-http";
 const container = new Container();
 
 // Vinculando a interface HttpClient à implementação AxiosHttpClient
-container.bind<IHttpClient>("HttpClient").to(AxiosHttpClient);
+container
+  .bind<IHttpClient>("HttpClient")
+  .to(AxiosHttpClient)
+  .inSingletonScope();
 
 container.bind<IUserHttp>("UserHttp").to(UserHttp);
 

@@ -2,12 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 
 import { ApiPagination } from "../entities/api-pagination";
 import { User } from "../entities/user";
-import { useRepository } from "./use-repository";
+import { IUserRepository } from "../repository/user-repository";
 
-export const useUsers = () => {
-  const { userRepository } = useRepository();
+const USERS_QUERY_KEY = "users";
+
+export const useUsers = (userRepository: IUserRepository) => {
   return useQuery<ApiPagination<User>>({
-    queryKey: ["users"],
+    queryKey: [USERS_QUERY_KEY],
     queryFn: () => userRepository.getUsers(),
   });
 };

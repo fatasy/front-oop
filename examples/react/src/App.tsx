@@ -1,16 +1,10 @@
 import "./App.css";
-import { useUsers } from "./hooks/use-users";
+import { UserList } from "./components/user-list";
 
 function App() {
-  const { data: response } = useUsers();
-  const { data } = response ?? {};
-  console.log({ data, response });
-
   return (
     <div className="App">
-      {data?.map((user) => (
-        <div key={user.id}>{user.firstName}</div>
-      ))}
+      <UserList />
     </div>
   );
 }

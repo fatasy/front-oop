@@ -1,4 +1,8 @@
-import axios, { AxiosInstance, AxiosResponse } from "axios";
+import axios, {
+  AxiosInstance,
+  AxiosRequestHeaders,
+  AxiosResponse,
+} from "axios";
 import { injectable } from "inversify";
 import { IHttpClient } from "./i-http-service";
 
@@ -9,8 +13,6 @@ export class AxiosHttpClient implements IHttpClient {
   constructor() {
     this.axiosInstance = axios.create({
       baseURL: "https://reqres.in",
-      timeout: 5000,
-      headers: { "Content-Type": "application/json" },
     });
   }
 
@@ -40,10 +42,10 @@ export class AxiosHttpClient implements IHttpClient {
     return response.data;
   }
 
-  setHeaders(headers: Record<string, string>): void {
-    this.axiosInstance.defaults.headers = {
-      ...this.axiosInstance.defaults.headers,
-      ...headers,
-    };
+  setHeaders(headers: AxiosRequestHeaders): void {
+    this.axiosInstance.interceptors.request.use((config) => {
+      config.headers = headers;
+      return config;
+    });
   }
 }

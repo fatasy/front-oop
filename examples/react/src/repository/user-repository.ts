@@ -1,7 +1,6 @@
 import { inject, injectable } from "inversify";
 import { ApiPagination } from "../entities/api-pagination";
-import { ApiPaginationResponse } from "../entities/responses/api-pagination-response";
-import { UserResponse } from "../entities/responses/user-response";
+import { UsersResponse } from "../entities/responses/user-response";
 import { User } from "../entities/user";
 import { SafeApiCaller } from "../infrastructure/safe-api-caller";
 import type { IUserHttp } from "../services/http/user-http";
@@ -27,7 +26,7 @@ export class UserRepository implements IUserRepository {
   async getUsers(): Promise<ApiPagination<User>> {
     const response = await this.safeApiCaller.safeApiCall(
       this.userHttp.getUsers(),
-      ApiPaginationResponse(UserResponse)
+      UsersResponse
     );
     // TODO: Add error handling
     return ApiPaginationResponseTransform.transform(response, User);

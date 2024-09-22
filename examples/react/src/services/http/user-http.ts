@@ -1,12 +1,11 @@
 import { inject, injectable } from "inversify";
 import { WrappedResponse } from "../../entities/wrapped-response";
 
-import { TApiPaginationResponse } from "../../entities/responses/api-pagination-response";
-import { TUserResponse } from "../../entities/responses/user-response";
+import { TUsersResponse } from "../../entities/responses/user-response";
 import { type IHttpClient } from "./i-http-service";
 
 export interface IUserHttp {
-  getUsers(): Promise<WrappedResponse<TApiPaginationResponse<TUserResponse>>>;
+  getUsers(): Promise<WrappedResponse<TUsersResponse>>;
 }
 
 @injectable()
@@ -18,8 +17,6 @@ export class UserHttp implements IUserHttp {
   }
 
   async getUsers() {
-    return this.httpClient.get<
-      WrappedResponse<TApiPaginationResponse<TUserResponse>>
-    >("/api/users");
+    return this.httpClient.get<WrappedResponse<TUsersResponse>>("/api/users");
   }
 }
