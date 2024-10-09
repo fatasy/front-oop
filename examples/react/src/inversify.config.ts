@@ -1,10 +1,11 @@
 import { Container } from "inversify";
-import { SafeApiCaller } from "./infrastructure/safe-api-caller";
-import { IUserRepository, UserRepository } from "./repository/user-repository";
+import { SafeApiCaller } from "./infrastructure/api/safe-api-caller";
+import { IUserRepository, UserRepository } from "./features/user/repository/user-repository";
 
-import { AxiosHttpClient } from "./services/http/axios-http-client";
-import { IHttpClient } from "./services/http/i-http-service";
-import { IUserHttp, UserHttp } from "./services/http/user-http";
+import { AxiosHttpClient } from "./core/services/http/axios-http-client";
+import { IHttpClient } from "./core/services/http/i-http-service";
+import { IUserHttp, UserHttp } from "./features/user/services/http/user-http";
+
 
 const container = new Container();
 

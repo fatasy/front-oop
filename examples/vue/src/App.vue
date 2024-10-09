@@ -1,23 +1,36 @@
 <script setup lang="ts">
-  import { RouterLink, RouterView } from 'vue-router'
-  import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue';
+
+const selectedOption = ref('')
+const isActive = ref(true)
+const options  = [
+        { code: 'en-US', name: 'English' },
+        { code: 'de-DE', name: 'German' },
+      ]
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <v-dialog max-width="500" v-model="isActive">
+    <template v-slot:default="{ isActive }">
+      <v-card title="Dialog">
+        <v-select
+          style="width: 300px; height: 40px"
+          label="Select"
+          id="select"
+          v-model="selectedOption"
+          itemTitle="name"
+          itemValue="code"
+          :items="options"
+        ></v-select>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+        <v-card-actions>
+          <v-spacer></v-spacer>
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+          <v-btn text="Close Dialog" @click="isActive.value = false"></v-btn>
+        </v-card-actions>
+      </v-card>
+    </template>
+  </v-dialog>
 </template>
 
 <style scoped>

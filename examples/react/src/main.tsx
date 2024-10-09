@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "reflect-metadata";
 import App from "./App.tsx";
-import { Providers } from "./components/providers.tsx";
+import { Providers } from "./shared/components/providers.tsx";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

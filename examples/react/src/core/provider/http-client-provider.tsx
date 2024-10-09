@@ -1,5 +1,5 @@
 import React from "react";
-import { container } from "../inversify.config";
+import { container } from "../../inversify.config";
 import { IHttpClient } from "../services/http/i-http-service";
 
 export interface HttpClientProviderProps {

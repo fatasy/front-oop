@@ -4,7 +4,7 @@ import * as React from "react";
 
 import { useUsers } from "./use-users";
 
-import { Providers } from "../components/providers";
+import { Providers } from "../../../shared/components/providers";
 import { IUserRepository } from "../repository/user-repository";
 
 const mockUserRepository: IUserRepository = {

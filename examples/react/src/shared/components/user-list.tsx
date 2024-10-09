@@ -1,5 +1,5 @@
-import { useRepository } from "../hooks/use-repository";
-import { useUsers } from "../hooks/use-users";
+import { useRepository } from "../../core/hooks/use-repository";
+import { useUsers } from "../../features/user/hooks/use-users";
 
 export const UserList = () => {
   const { userRepository } = useRepository();

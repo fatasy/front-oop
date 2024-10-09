@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { HttpClientProvider } from "../provider/http-client-provider";
-import { RepositoryProvider } from "../provider/repository-provider";
+import { HttpClientProvider } from "../../core/provider/http-client-provider";
+import { RepositoryProvider } from "../../core/provider/repository-provider";
 import { ComposeProviders, Provider } from "./compose-provider";
 
 const queryClient = new QueryClient();

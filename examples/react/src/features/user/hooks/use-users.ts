@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { ApiPagination } from "../entities/api-pagination";
-import { User } from "../entities/user";
+import { ApiPagination } from "../../../core/entities/api-pagination";
+import { User } from "../../../core/entities/user";
 import { IUserRepository } from "../repository/user-repository";
 
 const USERS_QUERY_KEY = "users";

@@ -1,6 +1,6 @@
 import { injectable } from "inversify";
 import { z } from "zod";
-import { WrappedResponse } from "../entities/wrapped-response";
+import { WrappedResponse } from "../../core/entities/wrapped-response";
 
 @injectable()
 export class SafeApiCaller {

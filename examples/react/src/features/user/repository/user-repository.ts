@@ -1,10 +1,10 @@
 import { inject, injectable } from "inversify";
-import { ApiPagination } from "../entities/api-pagination";
-import { UsersResponse } from "../entities/responses/user-response";
-import { User } from "../entities/user";
-import { SafeApiCaller } from "../infrastructure/safe-api-caller";
-import type { IUserHttp } from "../services/http/user-http";
-import { ApiPaginationResponseTransform } from "../transforms/api-pagination-response-transform";
+import { ApiPagination } from "../../../core/entities/api-pagination";
+import { UsersResponse } from "../../../core/entities/responses/user-response";
+import { User } from "../../../core/entities/user";
+import { SafeApiCaller } from "../../../infrastructure/api/safe-api-caller";
+import type { IUserHttp } from "../../../core/services/http/user-http";
+import { ApiPaginationResponseTransform } from "../../../core/transforms/api-pagination-response-transform";
 
 export interface IUserRepository {
   getUsers(): Promise<ApiPagination<User>>;

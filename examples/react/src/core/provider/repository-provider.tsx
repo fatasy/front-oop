@@ -1,6 +1,6 @@
 import React, { createContext } from "react";
-import { container } from "../inversify.config";
-import { IUserRepository } from "../repository/user-repository";
+import { container } from "../../inversify.config";
+import { IUserRepository } from "../../features/user/repository/user-repository";
 
 export interface RepositoryContextProps {
   userRepository: IUserRepository;
